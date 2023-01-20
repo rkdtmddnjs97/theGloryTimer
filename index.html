@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Glory Timer:더글로리 드라마 다음화까지 남은시간</title>
+    <description
+      >더 글로리 파트2 나올때까지 남은 시간 혹은 날짜를 구하는 사이트 A site to
+      find the time or date left until The Glory Part 2 comes out.</description
+    >
+    <link
+      rel="shortcut icon"
+      sizes="76x76"
+      href="public/apple-icon-76x76.png"
+    />
+  </head>
+  <body>
+    <div class="block"></div>
+    <div class="timer"></div>
+    <div class="rest">May vary depending on official information</div>
+  </body>
+  <style>
+    body {
+      width: 100%;
+      height: 100%;
+      font-family: fantasy;
+      background-image: url("https://www.pinkvilla.com/english/images/2022/12/1073353567_the-glory_1280*720.jpg");
+      background-size: cover;
+    }
+    .block {
+      position: relative;
+      width: 100%;
+      top: 5rem;
+      text-align: center;
+      height: 30rem;
+      background-color: white;
+      opacity: 0.5;
+    }
+    .timer {
+      position: absolute;
+      top: 15rem;
+      width: 100%;
+      height: 20rem;
+      font-size: 5rem;
+      text-align: center;
+      height: 100%;
+    }
+    .rest {
+      position: absolute;
+      top: 10rem;
+      width: 100%;
+      height: 20rem;
+      font-size: 2rem;
+      color: red;
+      text-align: center;
+      height: 100%;
+      opacity: 0.8;
+    }
+  </style>
+  <script>
+    setInterval(() => {
+      const today = new Date();
+      const open = new Date("2023/03/01");
+      const difMsec = open.getTime() - today.getTime();
+      let difSec = Math.floor((difMsec / 1000) % 60);
+      let difMin = Math.floor((difMsec / (1000 * 60)) % 60);
+      let difHour = Math.floor((difMsec / (60 * 60 * 1000)) % 24);
+      let difDay = Math.floor(difMsec / (60 * 60 * 1000 * 24));
+      document.querySelector(
+        ".timer"
+      ).textContent = `${difDay}day   ${difHour}hour   ${difMin}min   ${difSec}sec`;
+    }, 1000);
+  </script>
+</html>
